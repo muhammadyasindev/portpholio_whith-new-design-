@@ -29,9 +29,9 @@ const protect = async (req, res, next) => {
         }
       }
 
-      const user = store.getUserByEmail(decoded.email || 'admin@portfolio.com');
+      const user = store.getUserByEmail(decoded.email) || store.getUser();
       if (user) {
-        req.user = { _id: user._id, email: user.email, name: user.name, role: user.role };
+        req.user = { _id: user._id || 'usr_admin_default_01', email: user.email || decoded.email, name: user.name || 'Muhammad Yasin', role: user.role || 'admin' };
         return next();
       }
 

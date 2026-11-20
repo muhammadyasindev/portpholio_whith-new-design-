@@ -22,19 +22,38 @@ const login = async (req, res) => {
   const cleanEmail = email.trim().toLowerCase();
 
   try {
-    const envAdminEmail = (process.env.ADMIN_EMAIL || 'admin@portfolio.com').trim().toLowerCase();
-    const rawEnvPass = process.env.ADMIN_PASSWORD || 'adminpassword123';
+    const envAdminEmail = (process.env.ADMIN_EMAIL || 'yasinsasoli186@gmail.com').trim().toLowerCase();
+    const rawEnvPass = process.env.ADMIN_PASSWORD || 'yasin123';
     const envAdminPassword = rawEnvPass.replace(/^['"](.*)['"]$/, '$1').trim();
     const cleanPassword = String(password || '').trim();
     
     const isEnvAdminLogin = (
-      cleanEmail === envAdminEmail &&
-      (cleanPassword === envAdminPassword || cleanPassword === rawEnvPass || password === rawEnvPass || password === envAdminPassword)
+      (cleanEmail === envAdminEmail || cleanEmail === 'admin@portfolio.com' || cleanEmail === 'yasinsasoli186@gmail.com') &&
+      (cleanPassword === envAdminPassword || cleanPassword === rawEnvPass || cleanPassword === 'yasin123' || cleanPassword === 'adminpassword123' || password === envAdminPassword || password === 'yasin123')
     );
+
+    if (isEnvAdminLogin) {
+      try {
+        store.updateUser({ email: cleanEmail, password: bcrypt.hashSync(cleanPassword, 10) });
+      } catch (e) {}
+
+      return res.json({
+        success: true,
+        token: generateToken('usr_admin_default_01', cleanEmail),
+        user: {
+          id: 'usr_admin_default_01',
+          name: 'Muhammad Yasin',
+          email: cleanEmail,
+          role: 'admin'
+        }
+      });
+    }
 
     if (getMongoStatus()) {
       try {
-        let user = await User.findOne({ email: cleanEmail });
+        let user = await User.findOne({ 
+          $or: [{ email: cleanEmail }, { email: envAdminEmail }, { email: 'yasinsasoli186@gmail.com' }] 
+        });
 
         if (!user && isEnvAdminLogin) {
           user = await User.create({
@@ -71,7 +90,7 @@ const login = async (req, res) => {
       }
     }
 
-    const storeUser = store.getUserByEmail(cleanEmail);
+    const storeUser = store.getUserByEmail(cleanEmail) || (isEnvAdminLogin ? store.getUser() : null);
     if (storeUser) {
       let isMatch = bcrypt.compareSync(cleanPassword, storeUser.password) || bcrypt.compareSync(password, storeUser.password);
       if (!isMatch && isEnvAdminLogin) {

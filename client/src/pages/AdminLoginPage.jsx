@@ -60,13 +60,26 @@ const AdminLoginPage = () => {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
         <div className="bg-white py-8 px-6 sm:px-10 shadow-xl rounded-3xl border border-stone-200">
           
-          <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 mb-6 text-xs text-stone-700 flex items-start gap-2.5">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-            <div>
-              <span className="font-bold block text-stone-900">Protected Administrator Portal</span>
-              <span className="font-sans text-[11px] block mt-0.5 text-stone-500">
-                Sign in with your configured admin email and password from your project configuration.
+          <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 mb-6 text-xs text-stone-700 space-y-2.5">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-stone-900 flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                Administrator Credentials
               </span>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('yasinsasoli186@gmail.com');
+                  setPassword('yasin123');
+                }}
+                className="text-[11px] font-mono text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-lg border border-emerald-200 transition-colors cursor-pointer"
+              >
+                Auto Fill
+              </button>
+            </div>
+            <div className="font-mono text-[11px] bg-white p-2.5 rounded-xl border border-stone-200 space-y-1">
+              <div><span className="text-stone-400">Email:</span> <span className="text-black font-semibold select-all">yasinsasoli186@gmail.com</span></div>
+              <div><span className="text-stone-400">Password:</span> <span className="text-black font-semibold select-all">yasin123</span></div>
             </div>
           </div>
 
@@ -82,7 +95,7 @@ const AdminLoginPage = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="admin@portfolio.com"
+                  placeholder="yasinsasoli186@gmail.com"
                   className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-darkBrown/30 bg-stone-50/50"
                 />
               </div>
