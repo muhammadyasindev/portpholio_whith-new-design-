@@ -1,0 +1,12 @@
+{
+  "name": "premium-developer-portfolio",
+  "version": "1.0.0",
+  "description": "Production-Ready Premium Full Stack Developer Portfolio with Admin Dashboard",
+  "scripts": {
+    "dev": "node dev.js",
+    "build": "cd client && npm install && npm run build",
+    "server": "cd server && node server.js",
+    "client": "cd client && npm run dev",
+    "start": "cd server && node server.js"
+  }
+}
