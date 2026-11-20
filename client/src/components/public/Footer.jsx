@@ -12,8 +12,8 @@ const Footer = ({ profile, settings }) => {
   return (
     <footer className="bg-black text-white pt-24 pb-12 border-t border-stone-900">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
-        
+
+
         <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-16 border-b border-stone-800 gap-8">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-stone-400 mb-3 block">
@@ -34,9 +34,9 @@ const Footer = ({ profile, settings }) => {
           </button>
         </div>
 
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 py-16 border-b border-stone-800 text-xs text-stone-400">
-          
+
           <div className="space-y-3">
             <h4 className="font-bold text-white text-base">
               {profile?.name || 'Muhammad Yasin'}
@@ -52,7 +52,7 @@ const Footer = ({ profile, settings }) => {
             </div>
           </div>
 
-          
+
           <div className="space-y-2.5">
             <h5 className="font-mono uppercase text-white font-semibold">Explore</h5>
             <p><a href="#home" className="hover:text-white transition-colors">Home</a></p>
@@ -62,7 +62,7 @@ const Footer = ({ profile, settings }) => {
             <p><a href="#contact" className="hover:text-white transition-colors">Contact Inquiry</a></p>
           </div>
 
-          
+
           <div className="space-y-2.5">
             <h5 className="font-mono uppercase text-white font-semibold">Contact Direct</h5>
             <p className="text-white font-medium">{profile?.email || 'contact@yasinportfolio.dev'}</p>
@@ -83,7 +83,7 @@ const Footer = ({ profile, settings }) => {
             )}
           </div>
 
-          
+
           <div className="space-y-3">
             <h5 className="font-mono uppercase text-white font-semibold">Socials</h5>
             <div className="flex flex-wrap gap-2">
@@ -130,9 +130,19 @@ const Footer = ({ profile, settings }) => {
           </div>
         </div>
 
-        
+
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-500 font-mono gap-4">
-          <p>&copy; {new Date().getFullYear()} {profile?.name || 'Muhammad Yasin'}. All rights reserved.</p>
+          <Link
+            to="/admin"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+            className="hover:text-stone-300 transition-colors cursor-pointer group"
+            title="Admin Panel"
+          >
+            &copy; {new Date().getFullYear()} {profile?.name || 'Muhammad Yasin'}.{' '}
+            <span className="underline underline-offset-4 decoration-stone-600 group-hover:decoration-stone-300 group-hover:text-white transition-colors">
+              All rights reserved.
+            </span>
+          </Link>
           <p>Personal Portfolio Website Animations Design System</p>
         </div>
 

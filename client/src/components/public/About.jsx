@@ -40,12 +40,12 @@ const About = ({ about, profile }) => {
 
   return (
     <section id="about" className="relative py-24 md:py-32 bg-white select-none border-t border-stone-200/80">
-      
-      
+
+
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
-        
-        
+
+
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,10 +61,10 @@ const About = ({ about, profile }) => {
           </p>
         </motion.div>
 
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16">
-          
-          
+
+
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ const About = ({ about, profile }) => {
             </div>
           </motion.div>
 
-          
+
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ const About = ({ about, profile }) => {
 
         </div>
 
-        
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 sm:p-8 rounded-3xl bg-stone-50/60 border border-stone-200/80 mb-16">
           {stats.map((st, i) => (
             <motion.div
@@ -150,7 +150,7 @@ const About = ({ about, profile }) => {
           ))}
         </div>
 
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pillars.map((item, idx) => {
             const Icon = item.icon;

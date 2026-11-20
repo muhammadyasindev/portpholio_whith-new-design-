@@ -25,17 +25,17 @@ const Hero = ({ profile, settings }) => {
 
   return (
     <section id="home" className="relative min-h-[92vh] flex items-center pt-28 sm:pt-32 pb-20 md:pb-28 bg-[#FDFDFD] overflow-hidden select-none">
-      
-      
+
+
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:28px_28px] opacity-50" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          
-          
+
+
           <div className="lg:col-span-7 space-y-7 text-left z-10">
-            
-            
+
+
             <motion.div
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ const Hero = ({ profile, settings }) => {
               </span>
             </motion.div>
 
-            
+
             <div className="space-y-3">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -76,7 +76,7 @@ const Hero = ({ profile, settings }) => {
               </motion.h1>
             </div>
 
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ const Hero = ({ profile, settings }) => {
               {shortIntro}
             </motion.p>
 
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ const Hero = ({ profile, settings }) => {
               </motion.a>
             </motion.div>
 
-            
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -183,7 +183,7 @@ const Hero = ({ profile, settings }) => {
 
           </div>
 
-          
+
           <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
@@ -191,8 +191,8 @@ const Hero = ({ profile, settings }) => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative w-full max-w-[420px]"
             >
-              
-              
+
+
               <div className="relative rounded-[32px] overflow-hidden bg-stone-100 border border-stone-200/90 shadow-2xl aspect-[4/5] group">
                 <img
                   src={avatarSrc}
@@ -202,8 +202,8 @@ const Hero = ({ profile, settings }) => {
                     e.target.src = '/profile-portrait.png';
                   }}
                 />
-                
-                
+
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex flex-col justify-end p-7 sm:p-8 text-white">
                   <p className="text-[11px] font-mono tracking-wider uppercase text-emerald-400 font-semibold flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -218,7 +218,7 @@ const Hero = ({ profile, settings }) => {
                 </div>
               </div>
 
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, x: -20 }}
                 animate={{ opacity: 1, scale: 1, x: 0, y: [0, -6, 0] }}
@@ -239,7 +239,7 @@ const Hero = ({ profile, settings }) => {
                 </div>
               </motion.div>
 
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, x: 20 }}
                 animate={{ opacity: 1, scale: 1, x: 0, y: [0, 6, 0] }}
